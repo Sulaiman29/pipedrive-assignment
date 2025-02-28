@@ -4,7 +4,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const API_TOKEN = process.env.PIPEDRIVE_API_TOKEN;
-const BASE_URL = 'https://api.pipedrive.com/v1';
+const COMPANY_DOMAIN = process.env.PIPEDRIVE_COMPANY_DOMAIN;
+const BASE_URL = `https://${COMPANY_DOMAIN}.pipedrive.com/api/v1`;
 
 // Get all deals
 export const getAllDeals = async () => {
