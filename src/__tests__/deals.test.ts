@@ -1,4 +1,3 @@
-import axios from 'axios';
 import request from 'supertest';
 import app from '../app';
 import { getAllDeals, createDeal, updateDeal } from '../services/pipedriveService';
