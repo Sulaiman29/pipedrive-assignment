@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response } from 'express';
 import dealsRouter from './routes/deals';
 
 const app = express();
@@ -10,7 +10,7 @@ app.use(express.json());
 app.use('/deals', dealsRouter);
 
 // Error handling middleware
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+app.use((err: Error, req: Request, res: Response) => {
   console.error(`Error: ${err.message}`);
   res.status(500).json({ error: 'Internal Server Error' });
 });
