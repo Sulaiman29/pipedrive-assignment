@@ -4,7 +4,7 @@ import { getAllDeals, createDeal, updateDeal } from '../services/pipedrive.servi
 
 // Mock the Pipedrive service
 jest.mock('axios');
-jest.mock('../services/pipedriveService');
+jest.mock('../services/pipedrive.service');
 
 describe('Deals API', () => {
   beforeEach(() => {
