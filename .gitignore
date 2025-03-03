@@ -43,8 +43,12 @@ ehthumbs.db
 *.sln
 *.sw?
 
-# Coverage directory used by tools like istanbul
+# Coverage directory
 coverage/
+
+# Build files
+dist/
+build/
 
 # TypeScript cache
 *.tsbuildinfo
