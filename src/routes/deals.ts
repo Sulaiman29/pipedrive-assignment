@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { getAllDeals, createDeal, updateDeal } from '../services/pipedriveService';
+import { getAllDeals, createDeal, updateDeal } from '../services/pipedrive.service';
 
 const router = express.Router();
 

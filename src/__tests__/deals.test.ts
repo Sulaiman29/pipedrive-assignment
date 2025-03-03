@@ -1,6 +1,6 @@
 import request from 'supertest';
 import app from '../app';
-import { getAllDeals, createDeal, updateDeal } from '../services/pipedriveService';
+import { getAllDeals, createDeal, updateDeal } from '../services/pipedrive.service';
 
 // Mock the Pipedrive service
 jest.mock('axios');
