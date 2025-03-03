@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import dealsRouter from './routes/deals';
 import metricsRouter from './routes/metrics';
-import { metricsMiddleware } from './middleware/metricsMiddleware';
+import { metricsMiddleware } from './middleware/metrics.middleware';
 
 const app = express();
 

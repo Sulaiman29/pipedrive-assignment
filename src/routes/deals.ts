@@ -1,17 +1,17 @@
-import express, { Request, Response } from 'express';
-import { getAllDeals, createDeal, updateDeal } from '../services/pipedriveService';
+import express, { Request, Response, NextFunction } from 'express';
+import { getAllDeals, createDeal, updateDeal } from '../services/pipedrive.service';
+import { asyncHandler } from '../utils/asyncHandler';
 
 const router = express.Router();
 
-// Custom type for async route handlers
-type AsyncRouteHandler = (req: Request, res: Response) => Promise<any>;
-
-// Helper function to wrap async handlers
-const asyncHandler = (fn: AsyncRouteHandler) => (req: Request, res: Response) => {
-    return Promise.resolve(fn(req, res)).catch((error) => {
-        console.error('Route error:', error.message);
-        return res.status(500).json({ error: 'Server error' });
-    });
+// Middleware to validate deal ID
+const validateDealId = (req: Request, res: Response, next: NextFunction) => {
+    const dealId = parseInt(req.params.id, 10);
+    if (isNaN(dealId)) {
+        res.status(400).json({ error: 'Invalid deal ID' });
+    } else {
+        next();
+    }
 };
 
 // GET /deals - gets all deals
@@ -26,12 +26,9 @@ router.post('/', asyncHandler(async (req: Request, res: Response) => {
     return res.status(201).json(newDeal);
 }));
 
-router.put('/:id', asyncHandler(async (req: Request, res: Response) => {
+// PUT /deals/:id - updates an existing deal
+router.put('/:id', validateDealId, asyncHandler(async (req: Request, res: Response) => {
     const dealId = parseInt(req.params.id, 10);
-    if (isNaN(dealId)) {
-        return res.status(400).json({ error: 'Invalid deal ID' });
-    }
-
     const updatedDeal = await updateDeal(dealId, req.body);
     return res.json(updatedDeal);
 }));
