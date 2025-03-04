@@ -27,9 +27,5 @@ jobs:
     - name: Run tests
       run: npm test
     
-    #- name: Build (Optional step)
-    #  run: npm run build
-
-    # building the docker image
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ${{ vars.DOCKER_IMAGE_NAME }}:${{ vars.RELEASE_VERSION }}
+    - name: Build (Optional step)
+      run: npm run build
