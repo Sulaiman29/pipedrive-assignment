@@ -86,6 +86,12 @@ curl --location --request PUT 'http://localhost:3000/deals/<deal_id>?api_token=<
   "timestamp": 1738270723
 }'
 ```
+
+### Get Request Metrics:
+```bash
+curl --location 'http://localhost:3000/metrics'
+```
+
 ## Stopping the Docker Container
 When you're done using the application, you can stop the Docker container to free up resources.
 1. **List Running Containers:**
