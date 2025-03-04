@@ -82,8 +82,7 @@ curl --location --request PUT 'http://localhost:3000/deals/<deal_id>?api_token=<
 --data '{
   "title": "Updated Deal",
   "value": 1500,
-  "currency": "USD",
-  "timestamp": 1738270723
+  "currency": "USD"
 }'
 ```
 
