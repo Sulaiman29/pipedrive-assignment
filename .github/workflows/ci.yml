@@ -32,4 +32,4 @@ jobs:
 
     # building the docker image
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag $DOCKER_IMAGE_NAME:$RELEASE_VERSION
+      run: docker build . --file Dockerfile --tag ${{ vars.DOCKER_IMAGE_NAME }}:${{ vars.RELEASE_VERSION }}
