@@ -80,3 +80,12 @@ curl --location --request PUT 'http://localhost:3000/deals/<deal_id>?api_token=<
   "currency": "USD",
   "timestamp": 1738270723
 }'
+
+## Stopping the Docker Container
+When you're done using the application, you can stop the Docker container to free up resources.
+1. **List Running Containers:**
+    docker ps
+
+2. **Stop the Container:**
+    To stop the container, use the docker stop command followed by the container ID or name:
+    docker stop <container_id_or_name>
