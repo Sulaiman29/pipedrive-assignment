@@ -30,15 +30,16 @@ This application provides a simple API that forwards requests to the Pipedrive A
 
 2. **Create a .env File:**
     In the root directory of the project, create a file named .env and add the following environment variables:
-        
-        PIPEDRIVE_API_TOKEN=2fcd62812055231302c5b1d6bcd0dd71e298cdd5
-        PIPEDRIVE_COMPANY_DOMAIN=abc
+    ```bash
+    PIPEDRIVE_API_TOKEN=2fcd62812055231302c5b1d6bcd0dd71e298cdd5
+    PIPEDRIVE_COMPANY_DOMAIN=abc
     
     Replace the values with your actual Pipedrive API token and company domain if different.
 
 3. **Build the Docker Image:**
     In your terminal, run the following command to build a Docker image for the application:
-
+    
+    ```bash
     docker build -t my-typescript-app .
     
     This command tells Docker to create an image named my-typescript-app using the instructions in the Dockerfile located in the current directory.
@@ -46,6 +47,7 @@ This application provides a simple API that forwards requests to the Pipedrive A
 4. **Run the Docker Container:**
     Once the image is built, you can run it as a container using the following command:
     
+    ```bash
     docker run --env-file .env -p 3000:3000 my-typescript-app
     
     This command starts a new container from the my-typescript-app image, maps port 3000 of the container to port 3000 on your local machine, and passes the environment variables from the .env file to the container.
@@ -58,10 +60,12 @@ This application provides a simple API that forwards requests to the Pipedrive A
 You can use curl to test the API endpoints provided by the application. Here are some example commands:
 
 ### Get Deals:
+```bash
 curl --location --request GET 'http://localhost:3000/deals?api_token=<your_api_token>' \
 --header 'Content-Type: application/json'
 
 ### Create a Deal:
+```bash
 curl --location --request POST 'http://localhost:3000/deals?api_token=<your_api_token>' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -72,6 +76,7 @@ curl --location --request POST 'http://localhost:3000/deals?api_token=<your_api_
 }'
 
 ### Update a Deal:
+```bash
 curl --location --request PUT 'http://localhost:3000/deals/<deal_id>?api_token=<your_api_token>' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -84,8 +89,10 @@ curl --location --request PUT 'http://localhost:3000/deals/<deal_id>?api_token=<
 ## Stopping the Docker Container
 When you're done using the application, you can stop the Docker container to free up resources.
 1. **List Running Containers:**
+    ```bash
     docker ps
 
 2. **Stop the Container:**
     To stop the container, use the docker stop command followed by the container ID or name:
+    ```bash
     docker stop <container_id_or_name>
